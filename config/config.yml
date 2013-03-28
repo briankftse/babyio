@@ -1,0 +1,20 @@
+defaults: &defaults
+  mixpanel:
+    api_key: a0cebfbf441ca4d918fe4c7e2d8e6faa
+    api_secret: e852c60a2bf34d4aac8a2f02298fc2ce
+    token: 82b38289663ad853b686c443a76c9b6a
+  facebook:
+    api_key: 261612127289832
+    app_secret: 7eb95e6545492d118736af0ea16eefd8
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  facebook:
+    api_key: 234291506658296
+    app_secret: 50d0296019c23f98379d71bfc064aeb2

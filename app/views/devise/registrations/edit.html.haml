@@ -1,0 +1,41 @@
+#registrations-edit
+  .page-header
+    %h1 Settings
+
+  .row
+    .span2
+      %ul.nav.nav-pills.nav-stacked
+        %li.active
+          %a{ :href => "#" }
+            %i.icon-user
+            Account
+        %li
+          %a{ :href => "#" }
+            %i.icon-key
+            Password
+        %li
+          %a{ :href => "#" }
+            %i.icon-user
+            Services
+
+    .span10
+      = form_for :user, :url => registration_path(:user),
+        :html => { :method => :put, :class => "form-horizontal well" } do |f|
+        %legend Account Settings
+        %fieldset
+          .control-group
+            %label.control-label Profile picture
+            .controls
+              = image_tag @user.avatar
+              = f.file_field :avatar
+          .control-group
+            %label.control-label Name
+            .controls
+              = f.text_field :name
+          .control-group
+            %label.control-label Email
+            .controls
+              = f.text_field :email
+          %hr
+          .form-actions
+            %button.btn.btn-primary.btn-large Save

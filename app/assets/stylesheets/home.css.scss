@@ -1,0 +1,29 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (min-width: 980px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .post-row:first-child {
+    padding-top: 0px;
+  }
+
+  .post-row {
+    padding-top: 10px;
+  }
+}
+
+
+.post {
+  border: 1px solid #555555;
+}
+
+.rounded-corners {
+  -moz-border-radius    : 5px;
+  -webkit-border-radius : 5px;
+  -khtml-border-radius  : 5px;
+  border-radius         : 5px;
+}

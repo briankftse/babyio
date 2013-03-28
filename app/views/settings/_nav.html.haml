@@ -1,0 +1,13 @@
+%ul.nav.nav-pills.nav-stacked
+  %li{ :class => "#{"active" if controller.action_name == "account"}" }
+    %a{ :href => settings_account_url }
+      %i.icon-user
+      Account
+  %li{ :class => "#{"active" if controller.action_name == "password"}" }
+    %a{ :href => settings_password_url }
+      %i.icon-key
+      Password
+  %li{ :class => "#{"active" if controller.action_name == "apps"}" }
+    %a{ :href => settings_apps_url }
+      %i.icon-cloud
+      Apps

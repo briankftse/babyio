@@ -1,0 +1,25 @@
+#registrations-new
+  .page-header
+    %h1 Signup
+
+  .row
+    .span8.offset2
+      = form_for :user, :url => registration_path(:user),
+        :html => { :class => "form-horizontal well" } do |f|
+        %fieldset
+          .control-group
+            %label.control-label Email
+            .controls
+              = f.email_field :email
+          .control-group
+            %label.control-label Password
+            .controls
+              = f.password_field :password
+          .form-actions
+            %button.btn.btn-primary.btn-large Sign up
+
+      %hr
+
+      %a.btn.btn-primary.btn-large{ :href => user_omniauth_authorize_path(:facebook) }
+        %i.icon-facebook
+        Login with Facebook

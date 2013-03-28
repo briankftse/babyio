@@ -1,0 +1,42 @@
+%header.navbar.navbar-fixed-top
+  %nav.navbar-inner
+    .container-fluid
+      = link_to "Baby.io", root_path, :class => 'brand'
+      %ul.nav
+        - if !current_user
+          %li= link_to "Stream", "/stream"
+        - elsif current_user.babies.length == 1
+          %li= link_to "Stream", "/#/stream/#{current_user.babies.first.username}"
+        - else # More than 1 baby
+          %li.dropdown
+            %a.dropdown-toggle{ :"data-toggle" =>"dropdown",
+              :href => "#" }
+              Stream
+              %b.caret
+            %ul.dropdown-menu
+              - current_user.babies.each do |baby|
+                %li= link_to "#{baby.first_name} #{baby.last_name}", "/#/stream/#{baby.username}"
+
+        %li= link_to "Photos", "/photos"
+      %ul.nav.pull-right
+        - if user_signed_in?
+          #user-id{ :value => "#{current_user.id}" }
+          %li.dropdown
+            %a.dropdown-toggle{ :"data-toggle" =>"dropdown",
+              :href => "#menu1" }
+              = current_user.email
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Account", settings_account_path
+              %li
+                = link_to "Password", settings_password_path
+              %li
+                = link_to "Apps", settings_apps_path
+              %li
+                = link_to "Logout", destroy_user_session_path
+        - else
+          %li
+            = link_to "Login", new_user_session_path
+          %li
+            = link_to "Sign up", new_user_registration_path
